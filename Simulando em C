@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <string.h>
+
+// Definição de estruturas para mensagens CAN e LEAN
+typedef struct {
+    int id; // Identificador único da mensagem
+    char data[100]; // Dados da mensagem
+} Message;
+
+// Função para enviar uma mensagem CAN
+void sendCAN(Message msg) {
+    printf("Enviando mensagem CAN ID: %d\n", msg.id);
+    printf("Dados: %s\n", msg.data);
+}
+
+// Função para enviar uma mensagem LEAN
+void sendLEAN(Message msg) {
+    printf("Enviando mensagem LEAN ID: %d\n", msg.id);
+    printf("Dados: %s\n", msg.data);
+}
+
+int main() {
+    // Criando uma mensagem CAN
+    Message canMsg = {12345, "Ajuste de torque"};
+    
+    // Enviando a mensagem CAN
+    sendCAN(canMsg);
+
+    // Criando uma mensagem LEAN
+    Message leanMsg = {67890, "Desaceleração detectada"};
+    
+    // Enviando a mensagem LEAN
+    sendLEAN(leanMsg);
+
+    return 0;
+}
